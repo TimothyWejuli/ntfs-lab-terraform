@@ -81,6 +81,10 @@ nslookup FS01.lab.local
 
 Test access with `Get-ChildItem` (read) and `New-Item` (write). `Test-Path` alone does not reliably show permissions.
 
+As sarah.jones (GRP_Finance), the Finance share accepts a new file, while reading the HR share is denied:
+
+<img width="1003" height="684" alt="Screenshot-2026-10-22-165126" src="https://github.com/user-attachments/assets/79e627d2-4f07-475a-9659-1568d7fbdced" />
+
 | User | Share | Expected result |
 |------|-------|-----------------|
 | sarah.jones (GRP_Finance) | `\\FS01\Finance` | Read and write |
@@ -91,6 +95,10 @@ Test access with `Get-ChildItem` (read) and `New-Item` (write). `Test-Path` alon
 | tom.davis (GRP_Sales) | `\\FS01\Finance` | Access denied |
 
 Share-level permission is Everyone: Full Control by design. NTFS permissions do the enforcing.
+
+Running `icacls` against the HR share as a Finance user is also refused, which confirms the NTFS permissions are doing the blocking:
+
+<img width="523" height="84" alt="Icacls" src="https://github.com/user-attachments/assets/773fc1c6-60f7-4701-be3c-243cc0df9eed" />
 
 ## Troubleshooting
 
