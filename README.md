@@ -115,7 +115,7 @@ az vm deallocate --ids $(az vm list -g RG-FileServerLab --query "[].id" -o tsv) 
 
 Part 2 builds directly on this infrastructure. It adds Azure RBAC role assignments (Owner, Virtual Machine Contributor, and Reader) scoped to the FS01 virtual machine, so you control who can manage the server from Azure in addition to who can reach its files.
 
-- **Repository:** Coming soon
+- **Repository:** [azure-rbac-lab-terraform](https://github.com/TimothyWejuli/azure-rbac-lab-terraform)
 - **Requires from this lab:** the `RG-FileServerLab` resource group, the FS01 VM, and the `RG-TerraformState` storage account
 - **Creates:** three role assignments only, with no new VMs or networking
 
